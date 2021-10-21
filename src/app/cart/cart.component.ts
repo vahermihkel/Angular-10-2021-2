@@ -9,14 +9,9 @@ import { CartService } from '../services/cart.service';
 export class CartComponent implements OnInit {
   // kooloniga annan tüübi, võrdusmärgiga annan väärtuse
   cartItems: any[] = [];
+  //[{hind: 251, pealkiri: "anwjdn1"}]
 
-  // võtke ngFori abil kasutusele
-
-  // minge home.component.htmli
-  // sealt võtke ngFor osa - kopeerige kust algab div kuni selle div-ni
-  // kust lõpeb ngFor
-
-  // pange see ngFor kuvama "cartItems" muutuja sisu
+  sumOfCart = 0;
 
   constructor(private cartService: CartService) { }
 
@@ -28,14 +23,33 @@ export class CartComponent implements OnInit {
     // võtame kõik esemed mis on ostukorvi lisatud
     console.log("cart componendis");
 
-                  // tehke ise cartService ühendus
+                      // [{hind: 251, pealkiri: "anwjdn1"}]
     this.cartItems = this.cartService.cartItemsInService;
+    this.sumOfCart = 0;
+ //   [{hind:251,p:"1"},{hind: 150,p:"2"},{hind:200,p:"3"}].forEach();
+ // this.cartItems.forEach({hind:251,p:"1"} =>  251 = 0 + 251  )
+// this.cartItems.forEach({hind: 150,p:"2"} =>  401   =  251 + 150  )
+// this.cartItems.forEach({hind:200,p:"3"} =>  601   =  401 + 200  )
+
+    // this.cartItems.forEach(toode => this.sumOfCart = this.sumOfCart + toode.hind);
+    this.cartItems.forEach(toode => this.sumOfCart += toode.hind);
+
   }
 
-}
+  onEmptyCart() {
+    this.cartService.cartItemsInService = [];
+    this.cartItems = this.cartService.cartItemsInService;
+    this.sumOfCart = 0;
+  }
 
-// SIIA TEEME OSTUKORVIST KUSTUTAMISE .splice();
-// JA OSTUKORVI TÜHJENDAMISE = [];
+  onDeleteFromCart(ese: any) {
+          //0            // [{hind: 251, pealkiri: "anwjdn1"}]
+    let j2rjekorraNumber = this.cartService.cartItemsInService.indexOf(ese);
+    this.cartService.cartItemsInService.splice(j2rjekorraNumber,1);
+    this.sumOfCart = 0;
+    this.cartItems.forEach(toode => this.sumOfCart += toode.hind);
+  }
+}
 
 // ostukorvi kogusumma arvutuse
 // JavaScripti forEach() funktsiooni

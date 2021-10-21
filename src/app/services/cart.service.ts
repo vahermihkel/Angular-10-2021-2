@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CartService {
+              // [{hind: 251, pealkiri: "anwjdn1"}]
   cartItemsInService: any[] = [];
 
   constructor() { }
