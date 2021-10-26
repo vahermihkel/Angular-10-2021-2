@@ -1,0 +1,18 @@
+<!-- kui panna routerLink="/mingi-aadress/mingi-muu", siis ta paneb
+alati alates algusest: http://localhost:4200/mingi-aadress/mingi muu
+
+kui panna routerLink="mingi-aadress/mingi muu", siis ta lisab juurde
+olemasolevale asukohale ehk kui olen http://localhost:4200/admin lehel,
+siis URL on selle klikkides http://localhost:4200/admin/mingi-aadress/mingi-muu
+
+lehel parem klõps -> inspect -> console 
+"cannot match any routes"   ----- see URL mis ta kokku pani või sai, seda ei ole
+app-routingus (täpselt need 10 mis on välja kirjutatud) 
+-->
+
+<!-- OK: routerLink="lisa-ese" - võtab kus ta on ja liidab juurde
+OK: routerLink="esemed" - võtab kus ta on ja liidab juurde
+
+seda mitte panna: routerLink="admin/lisa-ese"-->
+<button routerLink="/admin/lisa-ese">Toodet lisama</button>
+<button routerLink="/admin/esemed">Vaata/kustuta tooteid</button>

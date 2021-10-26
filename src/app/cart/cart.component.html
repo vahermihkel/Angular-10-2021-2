@@ -1,16 +1,21 @@
+  <!-- ngIf - näitab siis kui on avaldis true (või muutuja) -->
 <button *ngIf="cartItems.length > 0" (click)="onEmptyCart()">Tühjenda ostukorv</button>
 
 <br><br>
 
+<!-- kaks võrdusmärki küsib kas vasak pool on võrdne parema poolega -->
 <div *ngIf="cartItems.length == 0">Ostukorv on tühi</div>
 
-<div *ngFor='let ese of cartItems' class="item">
+<!-- esimene asi mida kood teeb on otsida üles muutuja "of" järel
+otsitakse seda component.ts failist
+                    [{Ese1},{Ese2},{Ese3}] -->
+<div *ngFor='let cartItem of cartItems' class="item">
   <div>Toode</div>
-  <div class="price">{{ ese.hind }}</div>
-  <div class="title">{{ ese.pealkiri }}</div>
+  <div class="price">{{ cartItem.hind }}</div>
+  <div class="title">{{ cartItem.pealkiri }}</div>
   <div>PILT</div>
-  <button (click)="onDeleteFromCart(ese)">X</button>
-  <br>
+  <button (click)="onDeleteFromCart(cartItem)">X</button>
+  <br><br>  
 </div>
 
 <div *ngIf="cartItems.length > 0">Ostukorvi kogusumma on {{ sumOfCart }} €</div>
