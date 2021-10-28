@@ -35,7 +35,7 @@ export class CartComponent implements OnInit {
 // this.cartItems.forEach({hind:200,p:"3"} =>  601   =  401 + 200  )
 
     // this.cartItems.forEach(toode => this.sumOfCart = this.sumOfCart + toode.hind);
-    this.cartItems.forEach(cartItem => this.sumOfCart += cartItem.hind);
+    this.cartItems.forEach(cartItem => this.sumOfCart += cartItem.price);
 
   }
 
@@ -55,7 +55,7 @@ export class CartComponent implements OnInit {
                                         // 0,1,2,3
     this.cartService.cartItemsInService.splice(index,1);
     this.sumOfCart = 0;
-    this.cartItems.forEach(cartItem => this.sumOfCart += cartItem.hind);
+    this.cartItems.forEach(cartItem => this.sumOfCart += cartItem.price);
   }
 }
 

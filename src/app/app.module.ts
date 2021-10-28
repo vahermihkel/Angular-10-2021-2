@@ -10,6 +10,8 @@ import { AddItemComponent } from './admin/add-item/add-item.component';
 import { EditItemComponent } from './admin/edit-item/edit-item.component';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { ViewItemsComponent } from './admin/view-items/view-items.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ViewComponent } from './home/view/view.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ViewItemsComponent } from './admin/view-items/view-items.component';
     AddItemComponent,
     EditItemComponent,
     AdminHomeComponent,
-    ViewItemsComponent
+    ViewItemsComponent,
+    NavbarComponent,
+    ViewComponent
   ],
   imports: [
     BrowserModule,
