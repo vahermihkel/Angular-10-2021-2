@@ -6,7 +6,8 @@
   <div>Toode</div>
   <div class="price">{{ item.price }}</div>
   <div class="title">{{ item.title }}</div>
-  <img src="{{ item.imgSrc }}" alt="">
+  <div>{{ item.imgSrc }}</div>
   <button (click)="onRemoveItem(item)">X</button>
+  <button routerLink="/admin/muuda-ese/{{item.id}}">Muuda</button>
   <br>
 </div>
