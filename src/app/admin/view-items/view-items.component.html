@@ -3,10 +3,11 @@
   <!-- 1. {Ese1}
       2.{Ese2}
       3.{Ese3} -->
-  <div>Toode</div>
+  <div>Id: {{ item.id }}</div>
   <div class="price">{{ item.price }}</div>
   <div class="title">{{ item.title }}</div>
   <div>{{ item.imgSrc }}</div>
+  <div>{{ item.category }} </div>
   <button (click)="onRemoveItem(item)">X</button>
   <button routerLink="/admin/muuda-ese/{{item.id}}">Muuda</button>
   <br>

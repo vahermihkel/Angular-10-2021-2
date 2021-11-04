@@ -12,6 +12,7 @@ import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { ViewItemsComponent } from './admin/view-items/view-items.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ViewComponent } from './home/view/view.component';
+import { CategoryComponent } from './admin/category/category.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ViewComponent } from './home/view/view.component';
     AdminHomeComponent,
     ViewItemsComponent,
     NavbarComponent,
-    ViewComponent
+    ViewComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
