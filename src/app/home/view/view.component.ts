@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Item } from 'src/app/models/item.model';
 import { ItemService } from 'src/app/services/item.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { ItemService } from 'src/app/services/item.service';
   styleUrls: ['./view.component.css']
 })
 export class ViewComponent implements OnInit {
-  item: any;
+  item!: Item;
 
   constructor(private route: ActivatedRoute,
     private itemService: ItemService) { }
@@ -29,7 +30,7 @@ export class ViewComponent implements OnInit {
     //              5. võti-väärtus paaridest võtan võtme "esemeId", mis peab olema sama mis app-routingus
     //            78401438
     //78401438
-    let id = this.route.snapshot.paramMap.get("esemeId");
+    let id = Number(this.route.snapshot.paramMap.get("esemeId"));
     console.log(id);
 
 // let id = 3;
@@ -40,7 +41,10 @@ export class ViewComponent implements OnInit {
 // this.cartItems.find({hind:300,id:"3"} =>    ) SIIA ENAM EI JÕUA
                     // {hind:200,id:"3"}
 // this.item = {hind:200,id:"3"}
-    this.item = this.itemService.itemsInService.find(toode => toode.id == id);
+    let itemFound = this.itemService.itemsInService.find(toode => toode.id == id);
+    if (itemFound) {
+      this.item = itemFound;
+    }
     console.log(this.item);
   }
 

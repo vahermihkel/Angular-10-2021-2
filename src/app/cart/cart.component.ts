@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Item } from '../models/item.model';
 import { CartService } from '../services/cart.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class CartComponent implements OnInit {
   // tüübiks ükskõik milline massiiv ja väärtuseks tühi massiiv
   // ilma tüübita ma ei saa talle algväärtust anda, sest ta peab teadma
   // mille massiiv ta on
-  cartItems: any[] = [];
+  cartItems: Item[] = [];
   //[{hind: 251, pealkiri: "anwjdn1"}]
 
   // muutuja, millele annab väärtuseks 0
@@ -48,7 +49,7 @@ export class CartComponent implements OnInit {
   }
 
           //  {hind: 251, pealkiri: "anwjdn1"}
-  onDeleteFromCart(item: any) {
+  onDeleteFromCart(item: Item) {
           //0            // [{hind: 251, pealkiri: "anwjdn1"}]
     let index = this.cartService.cartItemsInService.indexOf(item);
     console.log(index);
